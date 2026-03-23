@@ -3,7 +3,7 @@ package main
 import (
     "testing"
 )
-
+// these are unit tests for the colorString and colorSubstring functions, they test different scenarios including valid colors, invalid colors, and edge cases to ensure that the functions behave as expected in various situations.
 func TestColorString(t *testing.T) {
     tests := []struct {
         name      string
@@ -43,7 +43,7 @@ func TestColorString(t *testing.T) {
             shouldErr: true,
         },
     }
-
+// this loop iterates over the test cases defined in the tests slice, for each test case it runs a subtest using t.Run with the name of the test case, it calls the colorString function with the color and text from the test case, it checks if an error was returned when it was expected or not, and if there was no error it checks if the result matches the expected output, if any of these checks fail it reports an error using t.Errorf.
     for _, tt := range tests {
         t.Run(tt.name, func(t *testing.T) {
             result, err := colorString(tt.color, tt.text)
@@ -56,7 +56,7 @@ func TestColorString(t *testing.T) {
         })
     }
 }
-
+// this test function tests the colorSubstring function with various scenarios, it checks if the function correctly colors the specified substring in the text, handles multiple occurrences of the substring, and returns an error for invalid colors. It uses a similar structure to the TestColorString function, iterating over a set of test cases and checking the results against expected values.
 func TestColorSubstring(t *testing.T) {
     tests := []struct {
         name       string
@@ -95,7 +95,7 @@ func TestColorSubstring(t *testing.T) {
             shouldErr: true,
         },
     }
-
+// this loop iterates over the test cases defined in the tests slice, for each test case it runs a subtest using t.Run with the name of the test case, it calls the colorSubstring function with the color, substring, and text from the test case, it checks if an error was returned when it was expected or not, and if there was no error it checks if the result matches the expected output, if any of these checks fail it reports an error using t.Errorf.
     for _, tt := range tests {
         t.Run(tt.name, func(t *testing.T) {
             result, err := colorSubstring(tt.color, tt.substring, tt.text)
